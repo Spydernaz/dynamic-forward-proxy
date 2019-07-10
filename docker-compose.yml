@@ -1,0 +1,21 @@
+version: '3'
+services:
+  pyspark:
+    build:
+      context: ./pyspark
+      dockerfile: Dockerfile
+    ports:
+      - 5001:80
+  upper:
+    build:
+      context: ./upper
+      dockerfile: Dockerfile
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - upper
+      - pyspark
