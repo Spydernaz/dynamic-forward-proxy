@@ -1,21 +1,18 @@
 version: '3'
 services:
-  pyspark:
+  math:
     build:
-      context: ./pyspark
+      context: ./math
       dockerfile: Dockerfile
-    ports:
-      - 5001:80
-  upper:
+
+  string:
     build:
-      context: ./upper
+      context: ./string
       dockerfile: Dockerfile
+
   nginx:
     build:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
-      - 80:80
-    depends_on:
-      - upper
-      - pyspark
+      - 8080:8080

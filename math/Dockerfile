@@ -1,9 +1,8 @@
-FROM spydernaz/spark-submit:latest
+FROM python:latest
 
 RUN apt update
 
-
-EXPOSE 80 5000
+EXPOSE 80
 
 COPY package /application
 
